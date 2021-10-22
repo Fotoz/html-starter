@@ -1,0 +1,55 @@
+//===== Font-face:
+=font-face($font-family, $font-path, $weight: 400, $style: normal)
+  @font-face
+    font:
+      family: $font-family
+      style: $style
+      weight: $weight
+      display: swap
+    src: url('../fonts/#{$font-path}.woff') format('woff'), url('../fonts/#{$font-path}.woff2') format('woff2')
+
+
+//===== Box:
+=box($width, $height: $width)
+  width: $width
+  height: $height
+
+
+//===== Background cover:
+=bgi($bg-url, $bg-size: cover, $bg-position: center)
+  background:
+    image: url('../img/' + #{$bg-url})
+    position: $bg-position
+    size: $bg-size
+    repeat: no-repeat
+
+// WebP support:
+=bgi_webp($bg-url)
+  @supports (-webkit-appearance:none)
+    background:
+      image: url('../img/' + #{$bg-url})
+
+//===== Transition:
+=trs($property: all, $duration: .15s, $timing-function: linear)
+  transition: $property $duration $timing-function
+
+
+//===== Responsive value:
+=resp-val($property, $start-size, $min-size)
+  $add-size: $start-size - $min-size
+  #{$property}: $start-size + px
+  @media (max-width: #{$container-maw + px})
+    #{$property}: calc(#{$min-size + px} + #{$add-size} * ((100vw - 320px) / #{$container-maw - 320}))
+
+
+//===== Responsive media queries:
+
+// Mobile first:
+=media-up($breakpoint)
+  @media (min-width: $breakpoint + px)
+    @content
+
+// Desktop first:
+=media-down($breakpoint)
+  @media (max-width: #{$breakpoint - 1} + px)
+    @content

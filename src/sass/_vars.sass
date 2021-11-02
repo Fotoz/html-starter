@@ -1,11 +1,16 @@
 //===== User:
-$white         : #fff
-$black         : #000
-$accent        : #ff9f1a
-$body-miw      : 320
-$container-maw : 1140
-$s-padd        : 50
-$z-index       : 1000
+$white        : #fff
+$black        : #000
+$accent       : #ff9f1a
+$s-padd       : 5
+$body-miw     : 320
+$container-maw: 1140
+
+// zindex-stack:
+$zindex-header   : 100
+$zindex-hamburger: 10
+$zindex-overlay  : 5
+$zindex-list     : 3
 
 // Breakpoints:
 $bp-xs : 0
@@ -17,16 +22,18 @@ $bp-xxl: 1400
 
 
 //===== Bootstrap:
-$font-family-base: 'Roboto', sans-serif
-$font-size-base  : 1rem
-$font-weight-base: 400
-$line-height-base: 1.5
-$body-color      : #333
-$body-bg         : $white
-$primary         : #0d6efd
-$secondary       : #6c757d
-$link-color      : $body-color
-$link-decoration : none
+$font-size-root      : 62.5%
+$font-size-base      : 1.6rem
+$font-family-base    : 'ff-roboto', sans-serif
+$font-weight-base    : 400
+$line-height-base    : 1.5
+$body-color          : #333
+$body-bg             : $white
+$primary             : #0d6efd
+$secondary           : #6c757d
+$link-color          : $body-color
+$link-decoration     : none
+$enable-smooth-scroll: false
 
 
 //===== Hamburgers:
@@ -44,8 +51,8 @@ $nav-margin          : 0
 $nav-background-hover: $accent
 
 // owl-dots:
-$dot-width            : 15px
-$dot-height           : 15px
+$dot-width            : 1.5rem
+$dot-height           : 1.5rem
 $dot-margin           : 0
 $dot-background       : #dde0e4
 $dot-background-active:	$accent

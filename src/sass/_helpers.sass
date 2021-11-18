@@ -1,17 +1,23 @@
 //===== Extentions:
 %container
   width: 100%
-  max-width: $container-maw + px
   margin:
     right: auto
     left: auto
   padding:
     right: 1.5rem
     left: 1.5rem
-  +media-down($bp-sm)
-    padding:
-      right: 1rem
-      left: 1rem
+
+  +media-min($breakpoint-sm)
+    max-width: map-get($container-max-widths, sm) // from 576 to 767 = 540
+  +media-min($breakpoint-md)
+    max-width: map-get($container-max-widths, md) // from 768 to 991 = 720
+  +media-min($breakpoint-lg)
+    max-width: map-get($container-max-widths, lg) // from 992 to 1199 = 960
+  +media-min($breakpoint-xl)
+    max-width: map-get($container-max-widths, xl) // from 1200 to 1399 = 1140
+  +media-min($breakpoint-xxl)
+    max-width: map-get($container-max-widths, xxl) // from 1400 to ... = 1320
 
 %s-padd
   padding:
@@ -34,6 +40,13 @@
   height: 100%
   object-fit: cover
 
+.page
+  position: relative
+  display: grid
+  grid-template-rows: auto 1fr auto
+  min-height: 100vh
+
 .page,
-.of-hidden
+.of-hidden,
+.no-scroll
   overflow: hidden

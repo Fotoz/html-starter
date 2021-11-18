@@ -113,7 +113,7 @@ function js () {
 }
 
 function images () {
-  return src(path.src.img)
+  return src( [path.src.img, '!src/img/svg-sprite/**'] )
     .pipe( newer(path.build.img) )
     .pipe(
       webp({
@@ -122,7 +122,7 @@ function images () {
     )
     .pipe( dest(path.build.img) )
 
-    .pipe( src(path.src.img) )
+    .pipe( src( [path.src.img, '!src/img/svg-sprite/**'] ) )
     .pipe( newer(path.build.img) )
     .pipe(
       imagemin([
@@ -147,8 +147,8 @@ function svgSprite () {
       svg_sprite({
         mode: {
           stack: {
-            sprite: '../svg-sprite/svg-sprite.svg', // sprite file name
-            example: true
+            sprite: '../svg-sprite.svg', // sprite file name
+            // example: true
           }
         }
       })
